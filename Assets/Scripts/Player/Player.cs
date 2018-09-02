@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+    public int vel;
     Rigidbody RbPlayer;
 
     // Use this for initialization
@@ -25,10 +26,10 @@ public class Player : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        var x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
-        var z = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f;
+        var x = Input.GetAxis("Horizontal") * Time.deltaTime * vel;
+        var z = Input.GetAxis("Vertical") * Time.deltaTime * vel;
 
-        transform.Rotate(new Vector3(0, x, 0) * Time.deltaTime);
-        transform.Translate(0, 0, z);
+        //transform.Rotate(new Vector3(0, x, 0) * Time.deltaTime);
+        transform.Translate(x, 0, z);
     }
 }
