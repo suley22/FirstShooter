@@ -29,7 +29,6 @@ public class Player : MonoBehaviour {
         var x = Input.GetAxis("Horizontal") * Time.deltaTime * vel;
         var z = Input.GetAxis("Vertical") * Time.deltaTime * vel;
 
-        //transform.Rotate(new Vector3(0, x, 0) * Time.deltaTime);
         transform.Translate(x, 0, z);
     }
 }

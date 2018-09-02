@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour {
 
+    public Camera cam;
+
     public float mouseSensitivity = 100.0f;
     public float clampAngle = 80.0f;
 
@@ -27,7 +29,9 @@ public class MouseLook : MonoBehaviour {
 
         rotX = Mathf.Clamp(rotX, -clampAngle, clampAngle);
 
-        Quaternion localRotation = Quaternion.Euler(rotX, rotY, 0.0f);
+        Quaternion camrot = Quaternion.Euler(rotX, 0.0f, 0.0f);
+        Quaternion localRotation = Quaternion.Euler(0.0f, rotY, 0.0f);
         transform.rotation = localRotation;
+        cam.transform.rotation = camrot;
     }
 }
